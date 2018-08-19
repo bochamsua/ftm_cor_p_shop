@@ -1,0 +1,26 @@
+# Created by .ignore support plugin (hsz.mobi)
+### Magento template
+.idea
+var/
+/favicon.ico
+/LICENSE.html
+/RELEASE_NOTES.txt
+/api.php
+/index.php
+/mage
+/LICENSE.txt
+/cron.sh
+/cron-service.php
+/.htaccess
+/clear-db.php
+/install.php
+/get.php
+/php.ini.sample
+/cron.php
+/index.php.sample
+/.htaccess.sample
+/LICENSE_AFL.txt
+/downloader/
+/includes/
+/errors/
+/dev/
