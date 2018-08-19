@@ -80,12 +80,32 @@ class BS_Crypto_Helper_Data extends Mage_Core_Helper_Abstract
 
             $balances = $api->balances($price);
 
-            $totalBtc = $api->btc_total;
-            $totalUSDT = $totalBtc * $btcPrice;
+            $totalUSDT = 0;
+            foreach ($balances as $coin => $value) {
+                    $coins = $value['available'] + $value['onOrder'];
+
+                    $btcTotal = $value['btcTotal'];
+
+                    if($coin == 'USDT'){
+                        $totalUSDT += $coins;
+                    }else {
+                        if(isset($price[$coin.'USDT'])){
+                            $usdtPrice = $price[$coin.'USDT'];
+                            $totalUSDT += $coins * $usdtPrice;
+                        }else {
+                            $totalUSDT += $btcTotal * $btcPrice;
+                        }
+                    }
+            }
+
+
+
+            $total = $period->getTotal();
+
 
             return [
-                'btc' => $totalBtc,
-                'usdt'  => $totalUSDT
+                'current'  => $totalUSDT,
+                'total'  => $total,
             ];
 
         }
@@ -93,16 +113,25 @@ class BS_Crypto_Helper_Data extends Mage_Core_Helper_Abstract
         return false;
     }
 
-    public function getCustomerInvestmentInfo($customerId){
+    public function getCustomerInvestmentInfo($_investment){
 
-        $investment = Mage::getModel('bs_crypto/investment')->getCollection()->addFieldToFilter('customer_id', ['eq' => $customerId]);
+        $periodId = $_investment->getPeriodId();
 
-        if($inv = $investment->getFirstItem() && $investment->getFirstItem()->getId()){
-            $period = $inv->getPeriodId();
-        }
+        $currentState = $this->getAccountInfo($periodId);;
+
+        $init = $_investment->getInitValue();
+
+        $currentTotal = $init * $currentState['current']/$currentState['total'];
+
+        $percent = ($currentTotal - $init)*100/$init;
 
 
-        //$total = $this->getAccountInfo($exCode);
+        return [
+            'current'  => number_format($currentTotal, 2),
+            'percent'  => number_format($percent, 2),
+        ];
+
+
 
 
     }

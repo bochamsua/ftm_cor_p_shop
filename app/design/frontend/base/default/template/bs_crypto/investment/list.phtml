@@ -44,7 +44,7 @@
         <?php $_odd = ''; ?>
         <?php foreach ($_investments as $_investment): ?>
             <?php $date = Mage::helper('bs_crypto/investment')->getDateInfo($_investment) ?>
-            <?php $profit = Mage::helper('bs_crypto/investment')->getProfitInfo($_investment) ?>
+            <?php $profit = Mage::helper('bs_crypto')->getCustomerInvestmentInfo($_investment) ?>
             <tr>
                 <?php //echo $_investment->getInvestmentUrl()?>
                 <td class="number"><?php echo $_investment->getName();?></td>
