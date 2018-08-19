@@ -1,0 +1,40 @@
+<?php
+
+
+
+?>
+
+<div class="col-md-3 col-sm-6 col-xs-12 top-report cmsdas-1">
+    <div class="top-report-head">
+        <h4>Lifetime Investments (USDT)</h4>
+    </div>
+    <div class="cms top-report-content">
+        <div class="row">
+            <div class="col-xs-3 top-report-icon">
+                    <i class="fa fa-bar-chart"></i>
+            </div>
+            <div class="col-xs-9 top-report-value">
+                <?php echo Mage::helper('bs_crypto/investment')->getTotalInvestments(); ?>
+                <span class="hidden"></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="col-md-3 col-sm-6 col-xs-12 top-report cmsdas-2">
+    <div class="top-report-head">
+        <h4>Lifetime Profits (USDT)</h4>
+    </div>
+    <div class="cms top-report-content">
+        <div class="row">
+            <div class="col-xs-3 top-report-icon">
+                    <i class="fa fa-line-chart"></i>
+            </div>
+            <div class="col-xs-9 top-report-value">
+                <?php echo Mage::helper('bs_crypto/investment')->getTotalProfits(); ?>
+                <span class="hidden"></span>
+            </div>
+        </div>
+    </div>
+</div>

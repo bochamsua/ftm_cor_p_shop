@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * BS_Crypto extension
+ * 
+ * @category       BS
+ * @package        BS_Crypto
+ * @copyright      Copyright (c) 2018
+ */
+--> 
+<layout>
+    <adminhtml_crypto_account_index>
+        <reference name="menu">
+            <action method="setActive">
+                <menupath>bs_crypto/account</menupath>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="bs_crypto/adminhtml_account" name="account" />
+
+        </reference>
+    </adminhtml_crypto_account_index>
+    <adminhtml_crypto_account_grid>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="bs_crypto/adminhtml_account_grid" name="account_grid"/>
+        </block>
+    </adminhtml_crypto_account_grid>
+    <!-- Account add/edit action -->
+    <adminhtml_crypto_account_edit>
+        <update handle="editor"/>
+        <reference name="menu">
+            <action method="setActive">
+                <menupath>bs_crypto/account</menupath>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="bs_crypto/adminhtml_account_edit" name="account_edit"></block>
+        </reference>
+        <reference name="left">
+            <block type="bs_crypto/adminhtml_account_edit_tabs" name="account_tabs"></block>
+        </reference>
+    </adminhtml_crypto_account_edit>
+
+    <adminhtml_crypto_period_index>
+        <reference name="menu">
+            <action method="setActive">
+                <menupath>bs_crypto/period</menupath>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="bs_crypto/adminhtml_period" name="period" />
+
+        </reference>
+    </adminhtml_crypto_period_index>
+    <adminhtml_crypto_period_grid>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="bs_crypto/adminhtml_period_grid" name="period_grid"/>
+        </block>
+    </adminhtml_crypto_period_grid>
+    <!-- Period add/edit action -->
+    <adminhtml_crypto_period_edit>
+        <update handle="editor"/>
+        <reference name="menu">
+            <action method="setActive">
+                <menupath>bs_crypto/period</menupath>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="bs_crypto/adminhtml_period_edit" name="period_edit"></block>
+        </reference>
+        <reference name="left">
+            <block type="bs_crypto/adminhtml_period_edit_tabs" name="period_tabs"></block>
+        </reference>
+    </adminhtml_crypto_period_edit>
+
+    <adminhtml_crypto_investment_index>
+        <reference name="menu">
+            <action method="setActive">
+                <menupath>bs_crypto/investment</menupath>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="bs_crypto/adminhtml_investment" name="investment" />
+
+        </reference>
+    </adminhtml_crypto_investment_index>
+    <adminhtml_crypto_investment_grid>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="bs_crypto/adminhtml_investment_grid" name="investment_grid"/>
+        </block>
+    </adminhtml_crypto_investment_grid>
+    <!-- Investment add/edit action -->
+    <adminhtml_crypto_investment_edit>
+        <update handle="editor"/>
+        <reference name="menu">
+            <action method="setActive">
+                <menupath>bs_crypto/investment</menupath>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="bs_crypto/adminhtml_investment_edit" name="investment_edit"></block>
+        </reference>
+        <reference name="left">
+            <block type="bs_crypto/adminhtml_investment_edit_tabs" name="investment_tabs"></block>
+        </reference>
+    </adminhtml_crypto_investment_edit>
+
+</layout>

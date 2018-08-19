@@ -1,0 +1,22 @@
+<?php
+/**
+ * BS_Crypto extension
+ * 
+ * @category       BS
+ * @package        BS_Crypto
+ * @copyright      Copyright (c) 2018
+ */
+/**
+ * Investment link widget template
+ *
+ * @category    BS
+ * @package     BS_Crypto
+ * @author Bui Phong
+ */
+?>
+<?php $_investment = $this->getCurrentInvestment();?>
+<?php if ($_investment) :?>
+    <div class="investment-widget-link">
+        <a href="<?php echo $_investment->getInvestmentUrl()?>"><?php echo $_investment->getName()?></a>
+    </div>
+<?php endif;?>

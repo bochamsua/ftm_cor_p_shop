@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * BS_QC extension
+ * 
+ * @category       BS
+ * @package        BS_QC
+ * @copyright      Copyright (c) 2016
+ */
+-->
+<config>
+    <modules>
+        <BS_Observation>
+            <version>1.0.0</version>
+        </BS_Observation>
+    </modules>
+    <global>
+        <helpers>
+            <bs_observation>
+                <class>BS_Observation_Helper</class>
+            </bs_observation>
+        </helpers>
+        <models>
+            <bs_observation>
+                <class>BS_Observation_Model</class>
+            </bs_observation>
+        </models>
+
+    </global>
+    <frontend>
+        <events>
+            <customer_registration_is_allowed>
+                <observers>
+                    <disable_customer_registration>
+                        <class>BS_Observation_Model_Observer</class>
+                        <method>disableCustomerRegistration</method>
+                    </disable_customer_registration>
+                </observers>
+            </customer_registration_is_allowed>
+        </events>
+    </frontend>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <BS_Observation before="Mage_Adminhtml">BS_Observation_Adminhtml</BS_Observation>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+</config>

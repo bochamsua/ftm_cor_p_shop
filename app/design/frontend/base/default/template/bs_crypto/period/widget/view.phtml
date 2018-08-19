@@ -1,0 +1,43 @@
+<?php
+/**
+ * BS_Crypto extension
+ * 
+ * @category       BS
+ * @package        BS_Crypto
+ * @copyright      Copyright (c) 2018
+ */
+/**
+ * Investment Period view widget template
+ *
+ * @category    BS
+ * @package     BS_Crypto
+ * @author Bui Phong
+ */
+?>
+<?php $_period = $this->getCurrentPeriod();?>
+<?php if ($_period) :?>
+    <div class="period-widget-view">
+        <h3><?php echo $_period->getName()?></h3>
+        <div>
+            <div class="name-widget">
+                <?php echo Mage::helper('bs_crypto')->__('Name');?>:<?php echo $_period->getName();?>
+            </div>
+            <div class="code-widget">
+                <?php echo Mage::helper('bs_crypto')->__('Code');?>:<?php echo $_period->getCode();?>
+            </div>
+            <div class="start_date-widget">
+                <?php echo Mage::helper('bs_crypto')->__("Start Date");?>: <?php echo Mage::helper('core')->formatDate($_period->getStartDate(), 'full');?>
+            </div>
+            <div class="end_date-widget">
+                <?php echo Mage::helper('bs_crypto')->__("End Date");?>: <?php echo Mage::helper('core')->formatDate($_period->getEndDate(), 'full');?>
+            </div>
+            <div class="total-widget">
+                <?php echo Mage::helper('bs_crypto')->__('Total Investment');?>:<?php echo $_period->getTotal();?>
+            </div>
+            <div class="total_final-widget">
+                <?php echo Mage::helper('bs_crypto')->__('Final Total Amount');?>:<?php echo $_period->getTotalFinal();?>
+            </div>
+
+        </div>
+    </div>
+<?php endif;?>

@@ -1,0 +1,2 @@
+// jscs:disable
+jQuery.noConflict();

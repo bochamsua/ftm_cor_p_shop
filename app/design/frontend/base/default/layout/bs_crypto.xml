@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * BS_Crypto extension
+ * 
+ * @category       BS
+ * @package        BS_Crypto
+ * @copyright      Copyright (c) 2018
+ */
+-->
+<layout>
+    
+    <bs_crypto_period_index translate="label" module="bs_crypto">
+        <label>Investment Periods list</label>
+        <update handle="page_one_column" />
+        <reference name="content">
+            <block type="bs_crypto/period_list" name="period_list" template="bs_crypto/period/list.phtml" />
+        </reference>
+    </bs_crypto_period_index>
+    <bs_crypto_investment_index translate="label" module="bs_crypto">
+        <label>My Investments list</label>
+        <update handle="customer_account"/>
+        <reference name="my.account.wrapper">
+            <block type="bs_crypto/investment_list" name="investment_list" template="bs_crypto/investment/list.phtml" />
+            <block type="customer/account_dashboard" name="customer.account.link.back" template="customer/account/link/back.phtml"/>
+        </reference>
+    </bs_crypto_investment_index>
+    <bs_crypto_period_view translate="label" module="bs_crypto">
+        <label>Investment Period view page</label>
+        <update handle="page_one_column" />
+        <reference name="content">
+            <block type="bs_crypto/period_view" name="period_view" template="bs_crypto/period/view.phtml" />
+            <block type="bs_crypto/period_investment_list" name="period.investment_list" as="period_periods" template="bs_crypto/period/investment/list.phtml" />
+        </reference>
+    </bs_crypto_period_view>
+    <bs_crypto_investment_view translate="label" module="bs_crypto">
+        <label>Investment view page</label>
+        <update handle="customer_account"/>
+        <reference name="my.account.wrapper">
+            <block type="bs_crypto/investment_view" name="investment_view" template="bs_crypto/investment/view.phtml" />
+            <block type="bs_crypto/investment_view" name="customer.account.link.back" template="customer/account/link/back.phtml"/>
+        </reference>
+    </bs_crypto_investment_view>
+
+    <customer_account>
+        <!-- Mage_Sales -->
+        <reference name="customer_account_navigation">
+            <action method="addLink" translate="label" module="bs_crypto"><name>crypto</name><path>crypto/investment/</path><label>My Investments</label></action>
+        </reference>
+    </customer_account>
+
+    <customer_account_index translate="label">
+        <reference name="customer_account_dashboard">
+            <block type="bs_crypto/investment_list" name="investment_list" as="investments" template="bs_crypto/investment/list.phtml" />
+        </reference>
+
+    </customer_account_index>
+
+</layout>

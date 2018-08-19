@@ -1,0 +1,22 @@
+<?php
+/**
+ * BS_Crypto extension
+ * 
+ * @category       BS
+ * @package        BS_Crypto
+ * @copyright      Copyright (c) 2018
+ */
+/**
+ * Investment Period link widget template
+ *
+ * @category    BS
+ * @package     BS_Crypto
+ * @author Bui Phong
+ */
+?>
+<?php $_period = $this->getCurrentPeriod();?>
+<?php if ($_period) :?>
+    <div class="period-widget-link">
+        <a href="<?php echo $_period->getPeriodUrl()?>"><?php echo $_period->getName()?></a>
+    </div>
+<?php endif;?>

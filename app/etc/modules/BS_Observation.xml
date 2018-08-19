@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * BS_Observation extension
+ * 
+ * @category       BS
+ * @package        BS_Observation
+ * @copyright      Copyright (c) 2017
+ */
+-->
+<config>
+    <modules>
+        <BS_Observation>
+            <active>true</active>
+            <codePool>local</codePool>
+        </BS_Observation>
+    </modules>
+</config>

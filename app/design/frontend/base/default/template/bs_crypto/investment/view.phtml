@@ -1,0 +1,36 @@
+<?php
+/**
+ * BS_Crypto extension
+ * 
+ * @category       BS
+ * @package        BS_Crypto
+ * @copyright      Copyright (c) 2018
+ */
+/**
+ * Investment view template
+ *
+ * @category    BS
+ * @package     BS_Crypto
+ * @author Bui Phong
+ */
+?>
+<?php $_investment = $this->getCurrentInvestment();?>
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<div class="page-title investment-title">
+    <h1><?php echo $_investment->getName(); ?></h1>
+</div>
+<div class="investment-view">
+    <div class="investment-name">
+        <?php echo Mage::helper('bs_crypto')->__('Name');?>:<?php echo $_investment->getName();?>
+
+    </div>
+    <div class="investment-init_value">
+        <?php echo Mage::helper('bs_crypto')->__('Investment Value');?>:<?php echo $_investment->getInitValue();?>
+
+    </div>
+    <div class="investment-customer_id">
+        <?php echo Mage::helper('bs_crypto')->__('Customer');?>:<?php echo $_investment->getCustomerId();?>
+
+    </div>
+
+</div>

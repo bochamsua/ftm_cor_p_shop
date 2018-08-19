@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * BS_Crypto extension
+ * 
+ * @category       BS
+ * @package        BS_Crypto
+ * @copyright      Copyright (c) 2018
+ */
+-->
+<config>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <bs_crypto translate="title" module="bs_crypto">
+                                        <title>Crypto</title>
+                                    </bs_crypto>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                    <bs_crypto translate="title" module="bs_crypto">
+                        <title>Crypto</title>
+                        <children>
+                            <account translate="title" module="bs_crypto">
+                                <title>Account</title>
+                                <sort_order>0</sort_order>
+                                <children>
+                                    <new translate="title"><title>New</title></new>
+                                    <edit translate="title"><title>Edit</title></edit>
+                                    <delete translate="title"><title>Delete</title></delete>
+                                </children>
+                            </account>
+                            <period translate="title" module="bs_crypto">
+                                <title>Investment Period</title>
+                                <sort_order>10</sort_order>
+                                <children>
+                                    <new translate="title"><title>New</title></new>
+                                    <edit translate="title"><title>Edit</title></edit>
+                                    <delete translate="title"><title>Delete</title></delete>
+                                </children>
+                            </period>
+                            <investment translate="title" module="bs_crypto">
+                                <title>Investment</title>
+                                <sort_order>20</sort_order>
+                                <children>
+                                    <new translate="title"><title>New</title></new>
+                                    <edit translate="title"><title>Edit</title></edit>
+                                    <delete translate="title"><title>Delete</title></delete>
+                                </children>
+                            </investment>
+                        </children>
+                    </bs_crypto>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+    <menu>
+        <bs_crypto translate="title" module="bs_crypto">
+            <title>Crypto</title>
+            <sort_order>15</sort_order>
+            <children>
+                <account translate="title" module="bs_crypto">
+                    <title>Account</title>
+                    <action>adminhtml/crypto_account</action>
+                    <sort_order>0</sort_order>
+                </account>
+                <period translate="title" module="bs_crypto">
+                    <title>Investment Period</title>
+                    <action>adminhtml/crypto_period</action>
+                    <sort_order>10</sort_order>
+                </period>
+                <investment translate="title" module="bs_crypto">
+                    <title>Investment</title>
+                    <action>adminhtml/crypto_investment</action>
+                    <sort_order>20</sort_order>
+                </investment>
+            </children>
+        </bs_crypto>
+    </menu>
+</config>

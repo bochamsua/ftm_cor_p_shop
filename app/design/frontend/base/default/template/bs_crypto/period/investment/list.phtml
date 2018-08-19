@@ -1,0 +1,31 @@
+<?php 
+/**
+ * BS_Crypto extension
+ * 
+ * @category       BS
+ * @package        BS_Crypto
+ * @copyright      Copyright (c) 2018
+ */
+/**
+ * Period Investment list template
+ *
+ * @category    BS
+ * @package     BS_Crypto
+ * @author Bui Phong
+ */
+?>
+<?php $_investments = $this->getInvestments(); ?>
+<?php if ($_investments->getSize() > 0) :?>
+<div class="investment-title">
+    <h2><?php echo Mage::helper('bs_crypto')->__('Investments') ?></h2>
+</div>
+<div class="investments-list-container">
+    <?php foreach ($_investments as $_investment) : ?>
+        <div class="investment-list-item">
+            <a href="<?php echo $_investment->getInvestmentUrl()?>">
+                <?php echo $_investment->getName();?>
+            </a><br />
+        </div>
+    <?php endforeach;?>
+</div>
+<?php endif;?>

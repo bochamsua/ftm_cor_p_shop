@@ -1,0 +1,64 @@
+<?php 
+/**
+ * BS_Crypto extension
+ * 
+ * @category       BS
+ * @package        BS_Crypto
+ * @copyright      Copyright (c) 2018
+ */
+/**
+ * Investment list template
+ *
+ * @category    BS
+ * @package     BS_Crypto
+ * @author Bui Phong
+ */
+?>
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<?php $_investments = $this->getInvestments(); ?>
+
+<div class="box-head">
+    <h2><?php echo $this->__('My Investment') ?></h2>
+</div>
+
+<?php echo $this->getPagerHtml(); ?>
+<?php if ($_investments->getSize() > 0) :?>
+    <table class="data-table investments" id="my-investment-table">
+        <col width="1" />
+        <col width="1" />
+        <col width="1" />
+        <col width="1" />
+        <col width="1" />
+        <col width="1" />
+        <thead>
+        <tr>
+            <th class="number"><?php echo $this->__('#') ?></th>
+            <th class="date"><?php echo $this->__('Start Date') ?></th>
+            <th class="date"><?php echo $this->__('End Date') ?></th>
+            <th class="total"><span class="nobr"><?php echo $this->__('Initial Amount') ?></span></th>
+            <th class="final"><span class="nobr"><?php echo $this->__('Current Amount') ?></span></th>
+            <th class="view"><span class="nobr"><?php echo $this->__('Percent Profit') ?></span></th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php $_odd = ''; ?>
+        <?php foreach ($_investments as $_investment): ?>
+            <?php $date = Mage::helper('bs_crypto/investment')->getDateInfo($_investment) ?>
+            <?php $profit = Mage::helper('bs_crypto/investment')->getProfitInfo($_investment) ?>
+            <tr>
+                <?php //echo $_investment->getInvestmentUrl()?>
+                <td class="number"><?php echo $_investment->getName();?></td>
+                <td class="date"><?php echo $date['start'];?></td>
+                <td class="date"><?php echo $date['end'];?></td>
+                <td class="total"><?php echo number_format($_investment->getInitValue(), 2);?></td>
+                <td class="final"><em><?php echo $profit['current'];?></em></td>
+                <td class="percent"><span class="nobr"><?php echo $profit['percent'];?></span></td>
+            </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
+    <script type="text/javascript">decorateTable('my-investment-table');</script>
+    <?php echo $this->getPagerHtml(); ?>
+<?php else: ?>
+    <p><?php echo $this->__('You have no investments at this moment'); ?></p>
+<?php endif ?>

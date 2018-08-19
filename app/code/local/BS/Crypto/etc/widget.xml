@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * BS_Crypto extension
+ * 
+ * @category       BS
+ * @package        BS_Crypto
+ * @copyright      Copyright (c) 2018
+ */
+-->
+<widgets>
+    <crypto_period_view type="bs_crypto/period_widget_view" translate="name description" module="bs_crypto">
+        <name>Investment Period view</name>
+        <description>Investment Period view widget</description>
+        <is_email_compatible>0</is_email_compatible>
+        <parameters>
+            <period_id type="complex" translate="label">
+                <visible>1</visible>
+                <required>1</required>
+                <label>Investment Period</label>
+                <type>label</type>
+                <helper_block>
+                    <type>bs_crypto/adminhtml_period_widget_chooser</type>
+                    <data>
+                        <button translate="open">
+                            <open>Select Investment Period</open>
+                        </button>
+                    </data>
+                </helper_block>
+                <sort_order>120</sort_order>
+            </period_id>
+        </parameters>
+    </crypto_period_view>
+    <crypto_period_link type="bs_crypto/period_widget_link" translate="name description" module="bs_crypto">
+        <name>Investment Period link</name>
+        <description>Investment Period link widget</description>
+        <is_email_compatible>0</is_email_compatible>
+        <parameters>
+            <period_id type="complex" translate="label">
+                <visible>1</visible>
+                <required>1</required>
+                <label>Investment Period</label>
+                <type>label</type>
+                <helper_block>
+                    <type>bs_crypto/adminhtml_period_widget_chooser</type>
+                    <data>
+                        <button translate="open">
+                            <open>Select Investment Period</open>
+                        </button>
+                    </data>
+                </helper_block>
+                <sort_order>130</sort_order>
+            </period_id>
+        </parameters>
+    </crypto_period_link>
+    <crypto_investment_view type="bs_crypto/investment_widget_view" translate="name description" module="bs_crypto">
+        <name>Investment view</name>
+        <description>Investment view widget</description>
+        <is_email_compatible>0</is_email_compatible>
+        <parameters>
+            <investment_id type="complex" translate="label">
+                <visible>1</visible>
+                <required>1</required>
+                <label>Investment</label>
+                <type>label</type>
+                <helper_block>
+                    <type>bs_crypto/adminhtml_investment_widget_chooser</type>
+                    <data>
+                        <button translate="open">
+                            <open>Select Investment</open>
+                        </button>
+                    </data>
+                </helper_block>
+                <sort_order>120</sort_order>
+            </investment_id>
+        </parameters>
+    </crypto_investment_view>
+    <crypto_investment_link type="bs_crypto/investment_widget_link" translate="name description" module="bs_crypto">
+        <name>Investment link</name>
+        <description>Investment link widget</description>
+        <is_email_compatible>0</is_email_compatible>
+        <parameters>
+            <investment_id type="complex" translate="label">
+                <visible>1</visible>
+                <required>1</required>
+                <label>Investment</label>
+                <type>label</type>
+                <helper_block>
+                    <type>bs_crypto/adminhtml_investment_widget_chooser</type>
+                    <data>
+                        <button translate="open">
+                            <open>Select Investment</open>
+                        </button>
+                    </data>
+                </helper_block>
+                <sort_order>130</sort_order>
+            </investment_id>
+        </parameters>
+    </crypto_investment_link>
+</widgets>

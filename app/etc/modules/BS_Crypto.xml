@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * BS_Crypto extension
+ * 
+ * @category       BS
+ * @package        BS_Crypto
+ * @copyright      Copyright (c) 2018
+ */
+-->
+<config>
+    <modules>
+        <BS_Crypto>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Mage_Core />
+             </depends>
+        </BS_Crypto>
+    </modules>
+</config>
