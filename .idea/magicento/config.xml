@@ -1724,7 +1724,9 @@
                         <table>persistent_session</table>
                     </session>
                 </entities>
-            </persistent_resource><moneybookers>
+            </persistent_resource><cmsmart_admintheme>
+                <class>Cmsmart_AdminTheme_Model</class>
+            </cmsmart_admintheme><moneybookers>
                 <class>Phoenix_Moneybookers_Model</class>
             </moneybookers><bs_crypto>
                 <class>BS_Crypto_Model</class>
@@ -1742,7 +1744,9 @@
                         <table>bs_crypto_investment</table>
                     </investment>
                 </entities>
-            </bs_crypto_resource></models>
+            </bs_crypto_resource><bs_observation>
+                <class>BS_Observation_Model</class>
+            </bs_observation></models>
     <blocks>
             <core>
                 <class>Mage_Core_Block</class>
@@ -1759,7 +1763,10 @@
                 <class>Mage_Widget_Block</class>
             </widget><page>
                 <class>Mage_Page_Block</class>
-            </page><install>
+            <rewrite>
+                    <html_head>N98_LayoutHelper_Block_Page_Html_Head</html_head>
+                    <html_breadcrumbs>N98_LayoutHelper_Block_Page_Html_Breadcrumbs</html_breadcrumbs>
+                </rewrite></page><install>
                 <class>Mage_Install_Block</class>
             </install><admin>
                 <class>Mage_Admin_Block</class>
@@ -1767,11 +1774,15 @@
                 <class>Mage_Rule_Block</class>
             </rule><adminhtml>
                 <class>Mage_Adminhtml_Block</class>
-            </adminhtml><directory>
+            <rewrite>
+                    <dashboard>Cmsmart_AdminTheme_Block_Adminhtml_Block_Dashboard</dashboard>
+                <dashboard_graph>Cmsmart_AdminTheme_Block_Adminhtml_Block_Dashboard_Graph</dashboard_graph><sales_order_view>Cmsmart_AdminTheme_Block_Adminhtml_Block_Sales_Order_View</sales_order_view><dashboard_grids>Cmsmart_AdminTheme_Block_Adminhtml_Block_Dashboard_Grids</dashboard_grids><dashboard_orders_grid>Cmsmart_AdminTheme_Block_Adminhtml_Block_Dashboard_Orders_Grid</dashboard_orders_grid><system_config_edit>Cmsmart_AdminTheme_Block_Adminhtml_Block_System_Config_Edit</system_config_edit><catalog_category_edit_form>Cmsmart_AdminTheme_Block_Adminhtml_Block_Catalog_Category_Edit_Form</catalog_category_edit_form><catalog_category_tree>Cmsmart_AdminTheme_Block_Adminhtml_Block_Catalog_Category_Tree</catalog_category_tree><dashboard_tab_products_viewed>Cmsmart_AdminTheme_Block_Adminhtml_Block_Dashboard_Tab_Products_Viewed</dashboard_tab_products_viewed><system_config_form_fieldset>Cmsmart_AdminTheme_Block_Adminhtml_Block_System_Config_Form_Fieldset</system_config_form_fieldset></rewrite></adminhtml><directory>
                 <class>Mage_Directory_Block</class>
             </directory><customer>
                 <class>Mage_Customer_Block</class>
-            </customer><catalog>
+            <rewrite>
+                    <account_navigation>N98_LayoutHelper_Block_Customer_Account_Navigation</account_navigation>
+                </rewrite></customer><catalog>
                 <class>Mage_Catalog_Block</class>
             </catalog><payment>
                 <class>Mage_Payment_Block</class>
@@ -1781,7 +1792,9 @@
                 <class>Mage_CatalogSearch_Block</class>
             </catalogsearch><sales>
                 <class>Mage_Sales_Block</class>
-            </sales><checkout>
+            <rewrite>
+                    <order_info>N98_LayoutHelper_Block_Sales_Order_Info</order_info>
+                </rewrite></sales><checkout>
                 <class>Mage_Checkout_Block</class>
             </checkout><directpost><class>Mage_Authorizenet_Block_Directpost</class></directpost><paypal>
                 <class>Mage_Paypal_Block</class>
@@ -1825,7 +1838,9 @@
                 <class>Mage_Api2_Block</class>
             </api2><currencysymbol>
                 <class>Mage_CurrencySymbol_Block</class>
-            </currencysymbol><moneybookers><class>Phoenix_Moneybookers_Block</class></moneybookers><bs_crypto>
+            </currencysymbol><cmsmart_admintheme>
+                <class>Cmsmart_AdminTheme_Block</class>
+            </cmsmart_admintheme><moneybookers><class>Phoenix_Moneybookers_Block</class></moneybookers><bs_crypto>
                 <class>BS_Crypto_Block</class>
             </bs_crypto></blocks><helpers>
             <core>
@@ -1869,11 +1884,15 @@
                 <class>Mage_Api2_Helper</class>
             </api2><currencysymbol>
                 <class>Mage_CurrencySymbol_Helper</class>
-            </currencysymbol><moneybookers>
+            </currencysymbol><cmsmart_admintheme>
+                <class>Cmsmart_AdminTheme_Helper</class>
+            </cmsmart_admintheme><moneybookers>
                 <class>Phoenix_Moneybookers_Helper</class>
             </moneybookers><bs_crypto>
                 <class>BS_Crypto_Helper</class>
-            </bs_crypto></helpers><template>
+            </bs_crypto><bs_observation>
+                <class>BS_Observation_Helper</class>
+            </bs_observation></helpers><template>
             <email>
                 <design_email_header translate="label" module="core">
                     <label>Email - Header</label>
@@ -2121,7 +2140,10 @@
                         <class>adminhtml/observer</class>
                         <method>massactionPrepareKey</method>
                     </massaction>
-                </observers>
+                <cmsmart_admintheme_admin_predispatch>
+                        <class>Cmsmart_AdminTheme_Model_Adminhtml_Observer</class>
+                        <method>setTheme</method>
+                    </cmsmart_admintheme_admin_predispatch></observers>
             </adminhtml_controller_action_predispatch_start><admin_user_authenticate_after>
                 <observers>
                     <configuration_files_access_level_verification>
@@ -5944,7 +5966,15 @@ T: {{var telephone}}
                 <logout_clear>1</logout_clear>
                 <shopping_cart>1</shopping_cart>
             </options>
-        </persistent><moneybookers>
+        </persistent><cmsmart_admintheme>
+            <config>
+                <theme>admintheme</theme>
+            </config>
+            <layout>
+                <color>ffb849</color>
+                <menu>horizontal</menu>
+            </layout>
+        </cmsmart_admintheme><moneybookers>
             <settings>
                 <activationstatus>0</activationstatus>
             </settings>
@@ -6089,11 +6119,17 @@ T: {{var telephone}}
             <version>1.6.0.0</version>
         </Mage_Compiler><Mage_Persistent>
             <version>1.0.0.0</version>
-        </Mage_Persistent><Phoenix_Moneybookers>
+        </Mage_Persistent><Cmsmart_AdminTheme>
+            <version>0.2.0</version>
+        </Cmsmart_AdminTheme><Phoenix_Moneybookers>
             <version>1.6.0.0</version>
         </Phoenix_Moneybookers><BS_Crypto>
             <version>1.0.0</version>
-        </BS_Crypto></modules><frontend>
+        </BS_Crypto><BS_Observation>
+            <version>1.0.0</version>
+        </BS_Observation><N98_LayoutHelper>
+            <version>0.1.0</version>
+        </N98_LayoutHelper></modules><frontend>
         <routers>
             <core>
                 <use>standard</use>
@@ -7160,7 +7196,14 @@ T: {{var telephone}}
                         <method>addItemsToTopmenuItems</method>
                     </bs_crypto>
                 </observers>
-            </page_block_html_topmenu_gethtml_before></events><cache>
+            </page_block_html_topmenu_gethtml_before><customer_registration_is_allowed>
+                <observers>
+                    <disable_customer_registration>
+                        <class>BS_Observation_Model_Observer</class>
+                        <method>disableCustomerRegistration</method>
+                    </disable_customer_registration>
+                </observers>
+            </customer_registration_is_allowed></events><cache>
             <allowed_requests>
                 <cms />
                 <catalog>
@@ -7443,7 +7486,11 @@ T: {{var telephone}}
                     <files>
                         <default>Mage_Persistent.csv</default>
                     </files>
-                </Mage_Persistent><Phoenix_Moneybookers>
+                </Mage_Persistent><Cmsmart_AdminTheme>
+                    <files>
+                        <default>Cmsmart_AdminTheme.csv</default>
+                    </files>
+                </Cmsmart_AdminTheme><Phoenix_Moneybookers>
                     <files>
                         <default>Phoenix_Moneybookers.csv</default>
                     </files>
@@ -7899,7 +7946,9 @@ T: {{var telephone}}
                     <file>currencysymbol.xml</file>
                 </currencysymbol><compiler>
                     <file>compiler.xml</file>
-                </compiler><moneybookers>
+                </compiler><cmsmart_admintheme>
+                    <file>cmsmart/admintheme.xml</file>
+                </cmsmart_admintheme><moneybookers>
                     <file>moneybookers.xml</file>
                 </moneybookers><bs_crypto>
                     <file>bs_crypto.xml</file>
@@ -7976,7 +8025,14 @@ T: {{var telephone}}
             <website_chnaged_indexers translate="label" module="catalog">
                 <label><![CDATA[Please refresh "Catalog URL Rewrites" and "Product Attributes" in System -&gt; <a href="%s">Index Management</a>]]></label>
             </website_chnaged_indexers>
-        </messages><acl>
+        </messages><themes>
+            <default module="cmsmart_admintheme">
+                <label>Default</label>
+            </default>
+            <admintheme module="cmsmart_admintheme">
+                <label>Cmsmart Admin Theme</label>
+            </admintheme>
+        </themes><acl>
             <resources>
                 <admin>
                     <children>
@@ -8259,7 +8315,7 @@ T: {{var telephone}}
                 <args>
                     <modules>
                         <connect before="Mage_Adminhtml">Mage_Connect_Adminhtml</connect>
-                    <Mage_PageCache before="Mage_Adminhtml">Mage_PageCache_Adminhtml</Mage_PageCache><widget before="Mage_Adminhtml">Mage_Widget_Adminhtml</widget><Mage_Index before="Mage_Adminhtml">Mage_Index_Adminhtml</Mage_Index><Mage_Paygate before="Mage_Adminhtml">Mage_Paygate_Adminhtml</Mage_Paygate><Mage_Authorizenet before="Mage_Adminhtml">Mage_Authorizenet_Adminhtml</Mage_Authorizenet><Mage_Centinel before="Mage_Adminhtml">Mage_Centinel_Adminhtml</Mage_Centinel><Mage_Paypal before="Mage_Adminhtml">Mage_Paypal_Adminhtml</Mage_Paypal><Mage_Bundle before="Mage_Adminhtml">Mage_Bundle_Adminhtml</Mage_Bundle><importexport before="Mage_Adminhtml">Mage_ImportExport_Adminhtml</importexport><oauth before="Mage_Adminhtml">Mage_Oauth_Adminhtml</oauth><Mage_Downloadable before="Mage_Adminhtml">Mage_Downloadable_Adminhtml</Mage_Downloadable><captcha>Mage_Captcha_Adminhtml</captcha><api2 before="Mage_Adminhtml">Mage_Api2_Adminhtml</api2><currencysymbol>Mage_CurrencySymbol_Adminhtml</currencysymbol><Mage_Compiler before="Mage_Adminhtml">Mage_Compiler_Adminhtml</Mage_Compiler><moneybookers after="Mage_Adminhtml">Phoenix_Moneybookers</moneybookers><BS_Crypto before="Mage_Adminhtml">BS_Crypto_Adminhtml</BS_Crypto></modules>
+                    <Mage_PageCache before="Mage_Adminhtml">Mage_PageCache_Adminhtml</Mage_PageCache><widget before="Mage_Adminhtml">Mage_Widget_Adminhtml</widget><Mage_Index before="Mage_Adminhtml">Mage_Index_Adminhtml</Mage_Index><Mage_Paygate before="Mage_Adminhtml">Mage_Paygate_Adminhtml</Mage_Paygate><Mage_Authorizenet before="Mage_Adminhtml">Mage_Authorizenet_Adminhtml</Mage_Authorizenet><Mage_Centinel before="Mage_Adminhtml">Mage_Centinel_Adminhtml</Mage_Centinel><Mage_Paypal before="Mage_Adminhtml">Mage_Paypal_Adminhtml</Mage_Paypal><Mage_Bundle before="Mage_Adminhtml">Mage_Bundle_Adminhtml</Mage_Bundle><importexport before="Mage_Adminhtml">Mage_ImportExport_Adminhtml</importexport><oauth before="Mage_Adminhtml">Mage_Oauth_Adminhtml</oauth><Mage_Downloadable before="Mage_Adminhtml">Mage_Downloadable_Adminhtml</Mage_Downloadable><captcha>Mage_Captcha_Adminhtml</captcha><api2 before="Mage_Adminhtml">Mage_Api2_Adminhtml</api2><currencysymbol>Mage_CurrencySymbol_Adminhtml</currencysymbol><Mage_Compiler before="Mage_Adminhtml">Mage_Compiler_Adminhtml</Mage_Compiler><cmsmart_admintheme before="Mage_Adminhtml">Cmsmart_AdminTheme_Adminhtml</cmsmart_admintheme><moneybookers after="Mage_Adminhtml">Phoenix_Moneybookers</moneybookers><BS_Crypto before="Mage_Adminhtml">BS_Crypto_Adminhtml</BS_Crypto><BS_Observation before="Mage_Adminhtml">BS_Observation_Adminhtml</BS_Observation></modules>
                 <module>Mage_Adminhtml</module><frontName><![CDATA[admin]]></frontName></args>
             <use>admin</use></adminhtml>
         </routers>
@@ -8625,4 +8681,10 @@ T: {{var telephone}}
         <moneybookers>
             <verify_url>http://www.phoenix-medien.de/index.php?id=105</verify_url>
         </moneybookers>
-    </phoenix></config>
+    </phoenix><phpunit>
+        <suite>
+            <modules>
+                <N98_LayoutHelper />
+            </modules>
+        </suite>
+    </phpunit></config>

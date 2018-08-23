@@ -24,8 +24,9 @@
             <action method="addJs"><script>cmsmart/admintemplate/bootstrap.min.js</script></action>
             <!-- <action method="addJs"><script>cmsmart/admintemplate/jquery.mCustomScrollbar.concat.min.js</script></action>
             <action method="addJs"><script>cmsmart/admintemplate/scrollbar-call.js</script></action> -->
-            <action method="addLinkRel"><rel>stylesheet</rel><href>//fonts.googleapis.com/css?family=Roboto:400,300,700</href></action>
-            <action method="addLinkRel"><rel>stylesheet</rel><href>//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css</href></action>
+            <!--<action method="addLinkRel"><rel>stylesheet</rel><href>//fonts.googleapis.com/css?family=Roboto:400,300,700</href></action>-->
+            <action method="addCss"><name>roboto/roboto.css</name></action>
+            <action method="addCss"><name>font-awesome-4.7.0/css/font-awesome.min.css</name></action>
             <!--[if lt IE 8]><!-->
             <action method="addCss"><name>themify/ie7.css</name></action>
             <!--<![endif]-->            
